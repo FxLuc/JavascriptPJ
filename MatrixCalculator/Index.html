@@ -1,0 +1,529 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Javascript</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <style>
+      .border-radius-0{
+        border-radius: 0;
+      }
+
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 50%;
+        margin: 0;
+      }
+
+      .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: .4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 70%;
+        width: 40%;
+        left: 5%;
+        bottom: 15%;
+        background-color: white;
+        transition: .4s;
+      }
+
+      input:checked + .slider {
+        background-color: #17A2B8;
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px #17A2B8;
+      }
+
+      input:checked + .slider:before {
+        transform: translateX(120%);
+      }
+
+    </style>
+  </head>
+  <body class="bg-dark text-white">
+    <div class="container-lg container-fluid-md py-3 text-center">
+      <h1>MÁY TÍNH MA TRẬN</h1>
+      <div class="row">
+        
+        <!-- MA TRẬN A -->
+        <div class="col-md-12 col-lg-5 col-xl-5">
+
+          <h4>Ma trận A</h4>
+          <form action="javascript:;">
+            <div class="row mx-n1">
+              <button class="btn btn-outline-info col mx-1" onclick="mkCells('matrixA', undefined, checkRowA.checked, checkColA.checked)">
+                <em class='fas fa-plus-circle'></em> Thêm
+              </button>
+              <div class="col-1 p-0" style="height: 25px">
+                <label class="switch">
+                  <input type="checkbox" id="checkColA" checked>
+                  <span class="slider"></span>
+                </label>
+                <label class="switch">
+                  <input type="checkbox" id="checkRowA" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <button class="btn btn-outline-warning col mx-1" onclick="rmCells('matrixA', checkRowA.checked, checkColA.checked)">
+                <em class='fas fa-minus-circle'></em> Bớt
+              </button>
+              <button class="btn btn-outline-danger col mx-1" type="reset">
+                <em class='fas fa-magic'></em> Xóa
+              </button>
+            </div>
+            <!-- matrix A -->
+            <table id="matrixA" class="col my-2">
+              <tbody>
+                <tr>
+                  <td><input type="number" class="form-control border-radius-0"></td>
+                  <td><input type="number" class="form-control border-radius-0"></td>
+                  <td><input type="number" class="form-control border-radius-0"></td>
+                </tr>
+                <tr>
+                  <td><input type="number" class="form-control border-radius-0"></td>
+                  <td><input type="number" class="form-control border-radius-0"></td>
+                  <td><input type="number" class="form-control border-radius-0"></td>
+                </tr>
+                <tr>
+                  <td><input type="number" class="form-control border-radius-0"></td>
+                  <td><input type="number" class="form-control border-radius-0"></td>
+                  <td><input type="number" class="form-control border-radius-0"></td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+
+          <!-- REQUEST A -->
+          <div class="row mx-1">
+            <small class="form-text text-muted">Chọn một cách xử lý cho ma trận A:</small>
+            <select class="form-control" onchange="optionChanged('A', value)">
+              <option selected value="0">Chọn một cách xử lý</option>
+              <option value="1">Chuyển về ma trận tam giác</option>
+              <option value="2">Tính định thức</option>
+              <option value="3">Tìm nghịch đảo</option>
+              <option value="4">Tìm hạng</option>
+              <option value="5">Chuyển vị</option>
+              <option value="6">Nhân với N</option>
+              <option value="7">Nâng lên lũy thừa N</option>
+              <option value="8">Giải hệ phương trình tuyến tính</option>
+              <option value="9">Tìm đồ thị phân đôi</option>
+              <option value="10">Tìm song ánh F qua ma trận B - đẳng cấu</option>
+              <option value="11">Tìm đường đi ngắn nhất từ đỉnh N Dijkstra</option>
+              <option value="12">Tìm khoảng cách giữa mọi cặp đỉnh Floyd</option>
+              <option value="13">Tìm cây khung nhỏ nhất Prim</option>
+              <option value="14">Tim Cây khung nhỏ nhất Kruskal</option>
+              <option value="15">Tim luồng cực đại Ford-Fulkerson</option>
+            </select>
+          </div>
+
+          <!-- Answer A-->
+          <div class="answer">
+            <!-- Case 1 -->
+            <div class="col answerA answerA1">
+              <h5 class="pt-3 text-uppercase">MA TRẬN TAM GIÁC</h5>
+              <p>SORRY, NO TECHNICAL SUPPORT HERE 01</p>
+            </div>
+            <!-- Case 2 -->
+            <div class="col answerA answerA2">
+              <h5 class="pt-3 text-uppercase">ĐỊNH THỨC CỦA MA TRẬN</h5>
+              <p>SORRY, NO TECHNICAL SUPPORT HERE 02</p>
+            </div>
+            <!-- Case 3 -->
+            <div class="col answerA answerA3">
+              <h5 class="pt-3 text-uppercase">MA TRẬN NGHỊCH ĐẢO</h5>
+              <p>SORRY, NO TECHNICAL SUPPORT HERE 03</p>
+            </div>
+            <!-- Case 4 -->
+            <div class="col answerA answerA4">
+              <h5 class="pt-3 text-uppercase">HẠNG CỦA MA TRẬN</h5>
+              <p>SORRY, NO TECHNICAL SUPPORT HERE 04</p>
+            </div>
+            <!-- Case 5 -->
+            <div class="col answerA answerA5">
+              <h5 class="pt-3 text-uppercase">MA TRẬN CHUYỂN VỊ</h5>
+              <p>SORRY, NO TECHNICAL SUPPORT HERE 05</p>
+            </div>
+            <!-- Case 6-->
+            <div class="col answerA answerA6">
+              <h5 class="pt-3 text-uppercase">NHÂN MA TRẬN VỚI <input type="number" class="w-25" onchange="delTable('multiplyA'); copyMatrixTo('matrixA', 'multiplyA', value)"></h5>
+              <div class="col">
+                <table class="col my-2 text-left" id="multiplyA">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Case 7 -->
+            <div class="col answerA answerA7">
+              <h5 class="pt-3 text-uppercase">MA TRẬN A MŨ <input type="number" class="w-25" onchange="delTable('powA'); powMatrix('matrixA', Number(value), 'powA')"></h5>
+              <div class="col">
+                <table class="col my-2 text-left" id="powA">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Case 8 -->
+            <div class="col answerA answerA8">
+              <h5 class="pt-3 text-uppercase">HỆ PHƯƠNG TRÌNH TUYẾN TÍNH</h5>
+              <p>SORRY, NO TECHNICAL SUPPORT HERE 08</p>
+            </div>
+            <!-- Case 9 -->
+            <div class="col answerA answerA9">
+              <h5 class="pt-3 text-uppercase">ĐỒ THỊ PHÂN ĐÔI</h5>
+              <p>SORRY, NO TECHNICAL SUPPORT HERE 09</p>
+            </div>
+            <!-- Case 10 -->
+            <div class="col answerA answerA10">
+              <h5 class="pt-3 text-uppercase">Tìm song ánh F qua ma trận B</h5>
+              <p>SORRY, NO TECHNICAL SUPPORT HERE 10</p>
+            </div>
+            <!-- Case 11 -->
+            <div class="col answerA answerA11">
+              <h5 class="pt-3 text-uppercase">dijkstra - ĐƯỜNG ĐI NGẮN NHẤT TỪ ĐỈNH
+                <select class="form-control" onchange="delTable('dijkstraA');dijkstra('matrixA', Number(value), 'dijkstraA')">
+                  <option value="" selected>Chọn một đỉnh</option>
+                  <option value="0">A</option>
+                  <option value="1">B</option>
+                  <option value="2">C</option>
+                  <option value="3">D</option>
+                  <option value="4">E</option>
+                  <option value="5">F</option>
+                  <option value="6">G</option>
+                  <option value="7">H</option>
+                  <option value="8">I</option>
+                  <option value="9">K</option>
+                </select>
+              </h5>
+              <div class="row">
+                <table class="table table-dark table-responsive-md table-bordered table-hover" id="dijkstraA">
+                  <tbody>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- Case 12 -->
+            <div class="col answerA answerA12">
+              <h5 class="pt-3 text-uppercase">KHOẢNG CÁCH NGẮN NHẤT GIỮA MỌI CẶP ĐỈNH (FLOYD)</h5>
+              <p>SORRY, NO TECHNICAL SUPPORT HERE 12</p>
+            </div>
+            <!-- Case 13 -->
+            <div class="col answerA answerA13">
+              <h5 class="pt-3 text-uppercase">Tìm cây khung nhỏ nhất Prim</h5>
+              <p>SORRY, NO TECHNICAL SUPPORT HERE 13</p>
+            </div>
+            <!-- Case 14 -->
+            <div class="col answerA answerA14">
+              <h5 class="pt-3 text-uppercase">Tim Cây khung nhỏ nhất Kruskal</h5>
+              <p>SORRY, NO TECHNICAL SUPPORT HERE 14</p>
+            </div>
+            <!-- Case 15 -->
+            <div class="col answerA answerA15">
+              <h5 class="pt-3 text-uppercase">LUỒNG CỰC ĐẠI (FORD-FULKRRSON)</h5>
+              <p>SORRY, NO TECHNICAL SUPPORT HERE 15</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- phép tính giữa 2 ma trận -->
+        <div class="col-md-12 col-lg-2 col-xl-2">
+          <h4><br></h4>
+
+          <div class="row">
+            <div class="col-md-4 col-lg-12 mb-2 pr-md-1 px-lg-0 px-sm-3">
+              <button class="btn btn-secondary w-100" onclick="plusAnB()">CỘNG<em class='fas fa-plus' style="position: absolute; left: 2em; top:0.75em"></em> </button>
+            </div>
+            <div class="col-md-4 col-lg-12 mb-2 px-md-1 px-lg-0 px-sm-3">
+              <button class="btn btn-secondary w-100" onclick="plusAnB('-')">TRỪ <em class='fas fa-minus'  style="position: absolute; left: 2em; top:0.75em"></em> </button>
+            </div>
+            <div class="col-md-4 col-lg-12 mb-2 pl-md-1 px-lg-0 px-sm-3">
+              <button class="btn btn-secondary w-100" onclick="AtimesB()">NHÂN <em class='fas fa-times'  style="position: absolute; left: 2em; top:0.75em"></em> </button>  
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6 col-lg-12 mb-2 pr-md-1 px-lg-0">
+              <button class="btn btn-secondary w-100" onclick="delTable('matrixB'); copyMatrixTo('matrixA', 'matrixB')">GÁN <em class='fas fa-equals'  style="position: absolute; left: 2em; top:0.75em"></em> </button>
+            </div>
+            <div class="col-md-6 col-lg-12 mb-2 pl-md-1 px-lg-0">
+              <button class="btn btn-secondary w-100" onclick="swapAnB()">HOÁN <em class='fas fa-exchange-alt'  style="position: absolute; left: 2em; top:0.75em"></em> </button>
+            </div>
+          </div>
+
+          <h4><br></h4>
+        </div>
+
+        <!-- MA TRẬN B -->
+        <div class="col-md-12 col-lg-5 col-xl-5">
+          <h4>Ma trận B</h4>
+
+          <!-- matrix B -->
+          <form action="javascript:;">
+            <div class="row mx-n1">
+              <button class="btn btn-outline-info col mx-1" onclick="mkCells('matrixB', undefined, checkRowB.checked, checkColB.checked)"><em class='fas fa-plus-circle'></em> Thêm</button>
+              <div class="col-1 p-0" style="height: 25px">
+                <label class="switch">
+                  <input type="checkbox" id="checkColB" checked>
+                  <span class="slider"></span>
+                </label>
+                <label class="switch">
+                  <input type="checkbox" id="checkRowB" checked>
+                  <span class="slider"></span>
+                </label>
+              </div>
+              <button class="btn btn-outline-warning col mx-1" onclick="rmCells('matrixB', checkRowB.checked, checkColB.checked)"><em class='fas fa-minus-circle'></em> Bớt</button>
+              <button class="btn btn-outline-danger col mx-1" type="reset"><em class='fas fa-magic'></em> Xóa</button>
+            </div>
+
+            <table id="matrixB" class="col my-2">
+              <tr>
+                <td><input type="number" class="form-control border-radius-0"></td>
+                <td><input type="number" class="form-control border-radius-0"></td>
+                <td><input type="number" class="form-control border-radius-0"></td>
+              </tr>
+              <tr>
+                <td><input type="number" class="form-control border-radius-0"></td>
+                <td><input type="number" class="form-control border-radius-0"></td>
+                <td><input type="number" class="form-control border-radius-0"></td>
+              </tr>
+              <tr>
+                <td><input type="number" class="form-control border-radius-0"></td>
+                <td><input type="number" class="form-control border-radius-0"></td>
+                <td><input type="number" class="form-control border-radius-0"></td>
+              </tr>
+            </table>
+          </form>
+
+            <!-- REQUEST B -->
+            <div class="row mx-1">
+              <small class="form-text text-muted">Chọn một cách xử lý cho ma trận B:</small>
+              <select class="form-control" onchange="optionChanged('B', value)">
+                <option selected value="0">Chọn một cách xử lý</option>
+                <option value="1">Chuyển về ma trận tam giác</option>
+                <option value="2">Tính định thức</option>
+                <option value="3">Tìm nghịch đảo</option>
+                <option value="4">Tìm hạng</option>
+                <option value="5">Chuyển vị</option>
+                <option value="6">Nhân với N</option>
+                <option value="7">Nâng lên lũy thừa N</option>
+                <option value="8">Giải hệ phương trình tuyến tính</option>
+                <option value="9">Tìm đồ thị phân đôi</option>
+                <option value="10">Tìm song ánh F qua ma trận B - đẳng cấu</option>
+                <option value="11">Tìm đường đi ngắn nhất từ đỉnh N Dijkstra</option>
+                <option value="12">Tìm khoảng cách giữa mọi cặp đỉnh Floyd</option>
+                <option value="13">Tìm cây khung nhỏ nhất Prim</option>
+                <option value="14">Tim Cây khung nhỏ nhất Kruskal</option>
+                <option value="15">Tim luồng cực đại Ford-Fulkerson</option>
+              </select>
+            </div>
+
+            <!-- Answer B -->
+            <div class="answer">
+              <!-- Case 1 -->
+              <div class="col answerB answerB1">
+                <h5 class="pt-3 text-uppercase">MA TRẬN TAM GIÁC</h5>
+                <p>SORRY, NO TECHNICAL SUPPORT HERE 01</p>
+              </div>
+              <!-- Case 2 -->
+              <div class="col answerB answerB2">
+                <h5 class="pt-3 text-uppercase">ĐỊNH THỨC CỦA MA TRẬN</h5>
+                <p>SORRY, NO TECHNICAL SUPPORT HERE 02</p>
+              </div>
+              <!-- Case 3 -->
+              <div class="col answerB answerB3">
+                <h5 class="pt-3 text-uppercase">MA TRẬN NGHỊCH ĐẢO</h5>
+                <p>SORRY, NO TECHNICAL SUPPORT HERE 03</p>
+              </div>
+              <!-- Case 4 -->
+              <div class="col answerB answerB4">
+                <h5 class="pt-3 text-uppercase">HẠNG CỦA MA TRẬN</h5>
+                <p>SORRY, NO TECHNICAL SUPPORT HERE 04</p>
+              </div>
+              <!-- Case 5 -->
+              <div class="col answerB answerB5">
+                <h5 class="pt-3 text-uppercase">MA TRẬN CHUYỂN VỊ</h5>
+                <p>SORRY, NO TECHNICAL SUPPORT HERE 05</p>
+              </div>
+              <!-- Case 6-->
+              <div class="col answerB answerB6">
+                <h5 class="pt-3 text-uppercase">NHÂN MA TRẬN VỚI <input type="number" class="w-25" onchange="delTable('multiplyB'); copyMatrixTo('matrixB', 'multiplyB', value)"></h5>
+                <div class="col">
+                  <table class="col my-2 text-left" id="multiplyB">
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- Case 7 -->
+              <div class="col answerB answerB7">
+                <h5 class="pt-3 text-uppercase">MA TRẬN B MŨ <input type="number" class="w-25" onchange="delTable('powB'); powMatrix('matrixB', Number(value), 'powB')"></h5>
+                <div class="col">
+                  <table class="col my-2 text-left" id="powB">
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- Case 8 -->
+              <div class="col answerB answerB8">
+                <h5 class="pt-3 text-uppercase">HỆ PHƯƠNG TRÌNH TUYẾN TÍNH</h5>
+                <p>SORRY, NO TECHNICAL SUPPORT HERE 08</p>
+              </div>
+              <!-- Case 9 -->
+              <div class="col answerB answerB9">
+                <h5 class="pt-3 text-uppercase">ĐỒ THỊ PHÂN ĐÔI</h5>
+                <p>SORRY, NO TECHNICAL SUPPORT HERE 09</p>
+              </div>
+              <!-- Case 10 -->
+              <div class="col answerB answerB10">
+                <h5 class="pt-3 text-uppercase">Tìm song ánh F qua ma trận A</h5>
+                <p>SORRY, NO TECHNICAL SUPPORT HERE 10</p>
+              </div>
+              <!-- Case 11 -->
+              <div class="col answerB answerB11">
+                <h5 class="pt-3 text-uppercase">dijkstra - ĐƯỜNG ĐI NGẮN NHẤT TỪ ĐỈNH
+                  <select class="form-control" onchange="delTable('dijkstraB');dijkstra('matrixB', Number(value), 'dijkstraB')">
+                    <option value="" selected>Chọn một đỉnh</option>
+                    <option value="0">A</option>
+                    <option value="1">B</option>
+                    <option value="2">C</option>
+                    <option value="3">D</option>
+                    <option value="4">E</option>
+                    <option value="5">F</option>
+                    <option value="6">G</option>
+                    <option value="7">H</option>
+                    <option value="8">I</option>
+                    <option value="9">K</option>
+                  </select>
+                </h5>
+                <div class="row">
+                  <table class="table table-dark table-responsive-md table-bordered table-hover" id="dijkstraB">
+                    <tbody>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- Case 12 -->
+              <div class="col answerB answerB12">
+                <h5 class="pt-3 text-uppercase">KHOẢNG CÁCH NGẮN NHẤT GIỮA MỌI CẶP ĐỈNH (FLOYD)</h5>
+                <p>SORRY, NO TECHNICAL SUPPORT HERE 12</p>
+              </div>
+              <!-- Case 13 -->
+              <div class="col answerB answerB13">
+                <h5 class="pt-3 text-uppercase">Tìm cây khung nhỏ nhất Prim</h5>
+                <p>SORRY, NO TECHNICAL SUPPORT HERE 13</p>
+              </div>
+              <!-- Case 14 -->
+              <div class="col answerB answerB14">
+                <h5 class="pt-3 text-uppercase">Tim Cây khung nhỏ nhất Kruskal</h5>
+                <p>SORRY, NO TECHNICAL SUPPORT HERE 14</p>
+              </div>
+              <!-- Case 15 -->
+              <div class="col answerB answerB15">
+                <h5 class="pt-3 text-uppercase">LUỒNG CỰC ĐẠI (FORD-FULKRRSON)</h5>
+                <p>SORRY, NO TECHNICAL SUPPORT HERE 15</p>
+              </div>
+            </div>
+          </form>
+
+        </div>
+
+      </div>
+
+      <!-- Kết quả giữa 2 ma trận -->
+      <hr class="bg-secondary h-100">
+      <div class="row mb-4">
+        <div class="col text-left">
+          <h4 id="resultHeader">KẾT QUẢ CHUNG</h4>
+        </div>
+        <div class="col text-right">
+          <button type="button" class="btn btn-outline-secondary w-25" id="delResult" onclick="hideResult()"> 
+            <em class='fas fa-window-close'></em> XÓA
+          </button>
+        </div>
+
+      </div>
+
+      <div class="row">
+
+        <!-- result A -->
+        <div class="col-md-12 col-lg"> 
+          <table class="col my-2 text-left" id="resultA">
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- calculation -->
+        <div class="col-md-12 col-lg-1 p-3">
+          <em class='fas fa-plus' style="position: absolute; top: 45%" id="plus"></em>
+          <em class='fas fa-minus' style="position: absolute; top: 45%" id="minus"></em>
+          <em class='fas fa-times' style="position: absolute; top: 45%" id="times"></em>
+        </div>
+
+        <!-- result B -->
+        <div class="col-md-12 col-lg">
+          <table class="col my-2 text-left" id="resultB">
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="col-md-12 col-lg-1 p-3" id="equal">
+          <em class='fas fa-equals' style="position: absolute; top: 45%"></em>
+        </div>
+
+        <!-- result C -->
+        <div class="col-md-12 col-lg">
+         <table class="col my-2 text-left" id="resultC">
+           <tbody>
+           </tbody>
+         </table>
+        </div>
+
+      </div>
+
+      <!-- Temp -->
+      <div class="row">
+        <table id="tempA">
+          <tbody>
+          </tbody>
+        </table>
+
+        <table id="tempB">
+          <tbody>
+          </tbody>
+        </table>
+
+      </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/matrixAlgorithm.js"></script>
+    <script src="./js/graphAlgorithm.js"></script>
+  </body>
+</html>

@@ -93,5 +93,3 @@ function coverNumToAlpha(number){
         }
     }
 }
-
-

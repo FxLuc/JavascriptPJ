@@ -105,6 +105,8 @@ function submitForm(formID, field){
     }
 }
 
+
+
 //validateRules
 validateArray[validateArray.length] = new Validate('formSignUp')
 inputConfirm('formSignUp', 'userConfirmPass', 'userPassword')
@@ -114,3 +116,8 @@ inputRequire('formSignUp', 'userPassword', '*Chưa nhập password nè bạn ơi
 inputRequire('formSignUp', 'userConfirmPass', '*Hãy nhập lại mật khẩu!')
 inputRegex('formSignUp', 'userEmail', /\S+@\S+\.\S+/, '*Email của bạn không đúng')
 inputRegex('formSignUp', 'userPassword', /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, '*Password ít nhất 8 ký tự (bao gồm chữ, số và ký tự đặc biệt)')
+
+validateArray[validateArray.length] = new Validate('formSignIn')
+inputRequire('formSignIn', 'userName', '*Hãy nhập tên vào!', 3, '*Tên của bạn có vẻ hơi ngắn =))')
+inputRequire('formSignIn', 'userPassword', '*Nhập password vào!')
+inputRegex('formSignIn', 'userPassword', /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, '*Password ít nhất 8 ký tự (bao gồm chữ, số và ký tự đặc biệt)')

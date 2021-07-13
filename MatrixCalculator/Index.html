@@ -470,111 +470,112 @@
 
       </div>
 
-      <!-- Facebook comment plugin -->
       <hr class="bg-secondary h-100">
-      <div class="row mt-5">
-        <div class="col-4">
-          <div class="card bg-secondary">
-            <div class="card-header">Xin chào Anonymous!</div>
-            <div class="card-body text-light pr-0">
-              <h5 class="card-title">What's new?</h5>
-              <p class="card-text text-left overflow-auto" id="card-text-content" style="height: 500px;">
-                <strong>2021/06/23:</strong> Khởi tạo dự án.
-              </p>
-            </div>
-            <div class="card-footer">
-              <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".sign-up-modal">SIGN UP</button>
-              <button type="button" class="btn btn-success" data-toggle="modal" data-target=".sign-in-modal">SIGN IN</button>
-              <form action="javascript:;" onsubmit="submitForm('formSignUp', 4)" id="formSignUp">
-                <div class="modal fade sign-up-modal" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-md">
-                    <div class="modal-content bg-dark">
-    
-                      <div class="modal-header border-secondary">
-                        <h5 class="modal-title">ĐĂNG KÝ TÀI KHOẢN</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true" class="text-light">&times;</span>
-                        </button>
+      <div class="row mx-0">
+        <!-- What's new? -->
+        <div class="d-sm-none d-md-block col-4 colcard bg-secondary mr-3">
+          <div class="card-header" id="sayHello">Xin chào Anonymous!</div>
+          <div class="card-body text-light pr-0">
+            <h5 class="card-title">What's new?</h5>
+            <p class="card-text text-left overflow-auto" id="card-text-content" style="height: 500px;">
+              <strong>2021/06/23:</strong> Khởi tạo dự án.
+            </p>
+          </div>
+          <div class="card-footer">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".sign-up-modal">SIGN UP</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target=".sign-in-modal">SIGN IN</button>
+            <!-- form sign up -->
+            <form action="javascript:;" onsubmit="submitForm('formSignUp', 4)" id="formSignUp">
+              <div class="modal fade sign-up-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                  <div class="modal-content bg-dark">
+  
+                    <div class="modal-header border-secondary">
+                      <h5 class="modal-title">ĐĂNG KÝ TÀI KHOẢN</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="text-light">&times;</span>
+                      </button>
+                    </div>
+  
+                    <div class="modal-body text-left">
+                      <div class="form-group">
+                        <label for="userName">User name:</label>
+                        <input type="text" name="userName" id="userName" class="form-control" placeholder="Nhập tên của bạn" aria-describedby="userNameMes">
+                        <small class="form-text text-danger form-feedback"></small>
                       </div>
-    
-                      <div class="modal-body text-left">
-                        <div class="form-group">
-                          <label for="userName">User name:</label>
-                          <input type="text" name="userName" id="userName" class="form-control" placeholder="Nhập tên của bạn" aria-describedby="userNameMes">
-                          <small class="form-text text-danger form-feedback"></small>
-                        </div>
-    
-                        <div class="form-group">
-                          <label for="userEmail">Email:</label>
-                          <div class="input-group mb-2">
-                            <div class="input-group-prepend">
-                              <div class="input-group-text">@</div>
-                            </div>
-                            <input type="email" class="form-control" name="userEmail" id="userEmail" aria-describedby="userEmailMes" placeholder="Nhập email của bạn">
+  
+                      <div class="form-group">
+                        <label for="userEmail">Email:</label>
+                        <div class="input-group mb-2">
+                          <div class="input-group-prepend">
+                            <div class="input-group-text">@</div>
                           </div>
-                          <small class="form-text text-danger form-feedback"></small>
+                          <input type="email" class="form-control" name="userEmail" id="userEmail" aria-describedby="userEmailMes" placeholder="Nhập email của bạn">
                         </div>
-    
-                        <div class="form-group">
-                          <label for="userPassword">Password</label>
-                          <input type="password" class="form-control" name="userPassword" id="userPassword" placeholder="Nhập mật khẩu mới">
-                          <small class="form-text text-danger form-feedback"></small>
-                        </div>
-    
-                        <div class="form-group">
-                          <label for="userConfirmPass">Confirm password</label>
-                          <input type="password" class="form-control" name="userConfirmPass" id="userConfirmPass" placeholder="Nhập lại mật khẩu">
-                          <small class="form-text text-danger form-feedback" src></small>
-                        </div>
+                        <small class="form-text text-danger form-feedback"></small>
                       </div>
-    
-                      <div class="modal-footer border-secondary">
-                        <button type="button" class="btn btn-secondary px-4" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary px-4">SIGN UP</button>
+  
+                      <div class="form-group">
+                        <label for="userPassword">Password</label>
+                        <input type="password" class="form-control" name="userPassword" id="userPassword" placeholder="Nhập mật khẩu mới">
+                        <small class="form-text text-danger form-feedback"></small>
                       </div>
+  
+                      <div class="form-group">
+                        <label for="userConfirmPass">Confirm password</label>
+                        <input type="password" class="form-control" name="userConfirmPass" id="userConfirmPass" placeholder="Nhập lại mật khẩu">
+                        <small class="form-text text-danger form-feedback" src></small>
+                      </div>
+                    </div>
+  
+                    <div class="modal-footer border-secondary">
+                      <button type="button" class="btn btn-secondary px-4" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary px-4">SIGN UP</button>
                     </div>
                   </div>
                 </div>
-              </form>
-              <form action="javascript:;" onsubmit="submitForm('formSignIn', 2)" id="formSignIn">
-                <div class="modal fade sign-in-modal" tabindex="-1" role="dialog" aria-hidden="true">
-                  <div class="modal-dialog modal-md">
-                    <div class="modal-content bg-dark">
-    
-                      <div class="modal-header border-secondary">
-                        <h5 class="modal-title">ĐĂNG NHẬP TÀI KHOẢN</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true" class="text-light">&times;</span>
-                        </button>
+              </div>
+            </form>
+            <!-- Form sign in -->
+            <form action="javascript:;" onsubmit="submitForm('formSignIn', 2)" id="formSignIn">
+              <div class="modal fade sign-in-modal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-md">
+                  <div class="modal-content bg-dark">
+  
+                    <div class="modal-header border-secondary">
+                      <h5 class="modal-title">ĐĂNG NHẬP TÀI KHOẢN</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="text-light">&times;</span>
+                      </button>
+                    </div>
+  
+                    <div class="modal-body text-left">
+                      <div class="form-group">
+                        <label for="userName">User name:</label>
+                        <input type="text" name="userName" class="form-control" placeholder="Nhập tên của bạn" aria-describedby="userNameMes">
+                        <small class="form-text text-danger form-feedback"></small>
                       </div>
-    
-                      <div class="modal-body text-left">
-                        <div class="form-group">
-                          <label for="userName">User name:</label>
-                          <input type="text" name="userName" class="form-control" placeholder="Nhập tên của bạn" aria-describedby="userNameMes">
-                          <small class="form-text text-danger form-feedback"></small>
-                        </div>
-    
-                        <div class="form-group">
-                          <label for="userPassword">Password</label>
-                          <input type="password" class="form-control" name="userPassword" placeholder="Nhập mật khẩu mới">
-                          <small class="form-text text-danger form-feedback"></small>
-                        </div>
+  
+                      <div class="form-group">
+                        <label for="userPassword">Password</label>
+                        <input type="password" class="form-control" name="userPassword" placeholder="Nhập mật khẩu mới">
+                        <small class="form-text text-danger form-feedback"></small>
                       </div>
-    
-                      <div class="modal-footer border-secondary">
-                        <button type="button" class="btn btn-secondary px-4" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary px-4">SIGN IN</button>
-                      </div>
+                    </div>
+  
+                    <div class="modal-footer border-secondary">
+                      <button type="button" class="btn btn-secondary px-4" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary px-4">SIGN IN</button>
                     </div>
                   </div>
                 </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
-        <div class="col bg-light card">
-          <div class="fb-comments" data-width="100%" data-numposts="5" data-colorscheme="dark" data-order-by="social"></div>
+        <!-- Facebook comment plugin -->
+        <div class="col card bg-light">
+          <div class="fb-comments" data-href="https://www.facebook.com/l3nov0/posts/621025905021099" data-width="100%" data-numposts="5" data-order-by="social"></div>
         </div>
       </div>
 
@@ -633,5 +634,6 @@
     <script src="./js/matrixAlgorithm.js"></script>
     <script src="./js/graphAlgorithm.js"></script>
     <script src="./js/formValidate.js"></script>
+    <script src="./js/whatsNew.js"></script>
   </body>
 </html>

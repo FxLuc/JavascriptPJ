@@ -3,12 +3,71 @@
     {
       "id": 1,
       "date": "2021-06-30",
-      "log": "Khởi tạo dự án Matrix Calculator."
+      "logs": [{
+        "log": "Khởi tạo dự án Matrix Calculator."
+      }]
     },
     {
       "id": 2,
       "date": "2021-07-01",
-      "log": "Xây dựng HTML, CSS"
+      "logs": [{
+        "log": "Xây dựng HTML, CSS."
+      },{
+        "log": "Thêm một số hiệu ứng Jquery."
+      }]
+    },
+    {
+      "id": 3,
+      "date": "2021-07-04",
+      "logs": [{
+        "log": "Thêm các tính năng thêm,sửa,xóa ma trận."
+      },{
+        "log": "Sửa lỗi responsive."
+      }]
+    },
+    {
+      "id": 4,
+      "date": "2021-07-07",
+      "logs": [{
+        "log": "Thêm phần để hiển thị kết quả."
+      },{
+        "log": "Thêm các tính năng cộng, trừ, nhân."
+      },{
+        "log": "Sửa một số hiệu ứng Jquery không hoạt động."
+      }]
+    },
+    {
+      "id": 5,
+      "date": "2021-07-11",
+      "logs": [{
+        "log": "Fix bảng kết quả bị chồng lấp."
+      },{
+        "log": "Kiểm tra điều kiện trước khi cộng, trừ, nhân."
+      },{
+        "log": "Thêm một số chức năng sao chép, lấp đầy, hoán, gán."
+      }]
+    },
+    {
+      "id": 6,
+      "date": "2021-07-13",
+      "logs": [{
+        "log": "Thêm một số chức năng rời rạc, thuật toán đồ thị."
+      },{
+        "log": "Thêm phần bình luận bởi Facebook plugin."
+      },{
+        "log": "Thêm footer cho đỡ trống trải."
+      }]
+    },
+    {
+      "id": 7,
+      "date": "2021-07-14",
+      "logs": [{
+        "log": "Thêm phần \"What's new?\" cùng với API."
+      },{
+        "log": "Fix responsive."
+      },{
+        "log": "Thêm phần đăng ký, đăng nhập cùng với validate form."
+      }]
     }
   ]
 }

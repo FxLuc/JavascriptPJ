@@ -12,7 +12,6 @@
   </head>
   <body class="bg-dark text-white">
     <script src="./js/facebookAPI.js"></script>
-
     <div class="container-lg container-fluid-md py-3 text-center">
       <h1>MÁY TÍNH MA TRẬN</h1>
       <div class="row">
@@ -473,12 +472,18 @@
       <hr class="bg-secondary h-100">
       <div class="row mx-0">
         <!-- What's new? -->
-        <div class="d-sm-none d-md-block col-4 colcard bg-secondary mr-3">
+        <div class="d-none d-md-block col-4 colcard bg-secondary mr-3 px-0">
           <div class="card-header" id="sayHello">Xin chào Anonymous!</div>
           <div class="card-body text-light pr-0">
             <h5 class="card-title">What's new?</h5>
             <p class="card-text text-left overflow-auto" id="card-text-content" style="height: 500px;">
-              <strong>2021/06/23:</strong> Khởi tạo dự án.
+              <strong>Đã có lỗi xảy ra:</strong> <br>
+              Khi bạn thấy những dòng này, tức là cái server chưa hoạt động. Bạn có thể kích hoạt nó bằng cách:<br>
+              1. Đảm bảo đã cài đặt nodejs.<br>
+              2. Đảm bảo đã cài đặt json-sever.<br>
+              3. Khởi động json-sever:<br>
+              $ <span style="font-family: 'Courier New', Courier, monospace;">json-server ./server/whatsnew.json</span>
+              NOTE: Để trang này hoạt động đúng cách, cần phải được mở bằng extension "Live server".
             </p>
           </div>
           <div class="card-footer">

@@ -3,7 +3,7 @@ function plusAnB(calculation = '+', tableIDA = 'matrixA', tableIDB = 'matrixB', 
     const tableA = document.getElementById(tableIDA)
     const tableB = document.getElementById(tableIDB)
     const resultC = document.getElementById(tableResultID)
-    if(tableA.rows.length == tableB.rows.length){
+    if(tableA.rows.length == tableB.rows.length && tableA.rows[0].cells.length == tableB.rows[0].cells.length){
         refreshMatrixResult(calculation)
         for (let i = 0; i < tableA.rows.length; i++) {
             const rowA = tableA.rows[i]
